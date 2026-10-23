@@ -1,0 +1,30 @@
+{
+  "title": "Mecánica Muscular",
+  "tagline": "Mecánica Muscular",
+  "description": "Descubre los últimos avances en ciencias del ejercicio y nutrición: análisis detallados y desgloses de las investigaciones más recientes.",
+  "lang": "es",
+  "url": "",
+  "author": "Yonathan Smoak",
+  "accent": "#2f5bff",
+  "subscribe_url": "",
+  "nav": [
+    {
+      "label": "Inicio",
+      "url": "/"
+    },
+    {
+      "label": "Quienes somos",
+      "url": "/about-2/"
+    },
+    {
+      "label": "Curso de hipertrofia",
+      "url": "/curso-hipertrofia/"
+    },
+    {
+      "label": "Mentoría",
+      "url": "/mentorship/"
+    }
+  ],
+  "social": [],
+  "footer_note": ""
+}
