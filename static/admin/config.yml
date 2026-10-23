@@ -1,0 +1,70 @@
+backend:
+  name: github
+  repo: TU-USUARIO/TU-REPOSITORIO   # cámbialo por tu repositorio de GitHub
+  branch: main
+
+locale: es
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: posts
+    label: Artículos
+    label_singular: Artículo
+    folder: content/posts
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    summary: "{{title}} · {{date | date('YYYY-MM-DD')}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha, name: date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ss.SSS[Z]" }
+      - { label: Resumen, name: description, widget: text, hint: "Aparece en las tarjetas y en los resultados de búsqueda." }
+      - { label: Imagen de portada, name: image, widget: image, required: false }
+      - { label: Etiquetas, name: tags, widget: list, required: false }
+      - { label: Destacado, name: featured, widget: boolean, default: false, hint: "Los destacados aparecen arriba en la portada." }
+      - { label: Borrador, name: draft, widget: boolean, default: false }
+      - { label: Texto, name: body, widget: markdown }
+
+  - name: pages
+    label: Páginas
+    label_singular: Página
+    folder: content/pages
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Resumen, name: description, widget: text, required: false }
+      - { label: Texto, name: body, widget: markdown }
+
+  - name: settings
+    label: Ajustes
+    files:
+      - name: site
+        label: Sitio
+        file: content/settings/site.json
+        fields:
+          - { label: Nombre del blog, name: title, widget: string }
+          - { label: Lema (titular de la portada), name: tagline, widget: string }
+          - { label: Descripción, name: description, widget: text }
+          - { label: Idioma (código), name: lang, widget: string, default: es }
+          - { label: Dirección del sitio, name: url, widget: string, required: false, hint: "Ejemplo: https://miblog.com (se usa para RSS y sitemap)." }
+          - { label: Autor, name: author, widget: string }
+          - { label: Color de acento, name: accent, widget: color }
+          - { label: Enlace de suscripción, name: subscribe_url, widget: string, required: false, hint: "Si lo dejas vacío, el botón Suscribirse se oculta." }
+          - label: Menú
+            name: nav
+            widget: list
+            fields:
+              - { label: Texto, name: label, widget: string }
+              - { label: Enlace, name: url, widget: string }
+          - label: Redes sociales
+            name: social
+            widget: list
+            required: false
+            fields:
+              - { label: Nombre, name: label, widget: string }
+              - { label: Enlace, name: url, widget: string }
+          - { label: Nota del pie, name: footer_note, widget: string, required: false }
