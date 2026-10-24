@@ -28,7 +28,7 @@ collections:
         required: false
         media_folder: /static/audio
         public_folder: /audio
-        hint: "Sube una grabación en MP3 o pega su enlace. Si la agregas, el lector escucha tu voz; si la dejas vacía, el artículo ofrece una voz automática."
+        hint: "Opcional. Sube una grabación en MP3 o pega su enlace para que el artículo muestre un reproductor. Si la dejas vacía, no se muestra ninguno."
       - { label: Etiquetas, name: tags, widget: list, required: false }
       - { label: Destacado, name: featured, widget: boolean, default: false, hint: "Los destacados aparecen arriba en la portada." }
       - { label: Borrador, name: draft, widget: boolean, default: false }

@@ -122,7 +122,7 @@ const icons = {
 // Primera letra o número del texto (salta signos como ¿ o ¡ al inicio de los títulos)
 const initial = (name) => esc((String(name || "?").trim().replace(/^[^\p{L}\p{N}]+/u, "").charAt(0) || "?").toUpperCase());
 
-function layout({ title, description, urlPath, body, image, ogType = "website", afterRecommended = false, scripts = "" }) {
+function layout({ title, description, urlPath, body, image, ogType = "website", afterRecommended = false }) {
   const fullTitle = title ? `${title} · ${site.title}` : site.title;
   const desc = description || site.description;
   const canonical = BASE ? `${BASE}${urlPath}` : "";
@@ -194,7 +194,6 @@ ${body}
   </div>
 </div>
 <script src="/js/main.js" defer></script>
-${scripts}
 </body>
 </html>`;
 }
@@ -209,28 +208,17 @@ const media = (p, extra = "") =>
     ? `<a class="card-media${extra}" href="${p.url}" data-initial="${initial(p.title)}" tabindex="-1" aria-hidden="true"><img src="${esc(p.image)}" alt="" loading="lazy"></a>`
     : `<a class="card-media placeholder${extra}" href="${p.url}" tabindex="-1" aria-hidden="true">${initial(p.title)}</a>`;
 
-const byline = (p) =>
-  `<div class="byline"><span class="avatar" aria-hidden="true">${initial(site.author)}</span><span><strong>${esc(site.author)}</strong> · <time datetime="${p.date.toISOString()}">${fmtDate(p.date)}</time> · ${p.minutes} min de lectura</span></div>`;
+// Fecha corta para las tarjetas (así el autor siempre ocupa dos líneas iguales)
+const fmtShort = (d) => d.toLocaleDateString(lang, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 
+const byline = (p, compact = false) =>
+  `<div class="byline"><span class="avatar" aria-hidden="true">${initial(site.author)}</span><span class="by-text"><strong>${esc(site.author)}</strong><span class="by-meta"><time datetime="${p.date.toISOString()}">${compact ? fmtShort(p.date) : fmtDate(p.date)}</time> · ${p.minutes} min de lectura</span></span></div>`;
+
+// Reproductor con tu propia grabación: solo aparece si el artículo tiene audio
 const listen = (p) =>
   p.audio
-    ? `<div class="listen listen-file"><audio controls preload="none" src="${esc(p.audio)}" aria-label="Escuchar este artículo"></audio></div>`
-    : `<div class="listen" data-listen hidden>
-  <div class="listen-row">
-    <button class="listen-main" type="button" data-listen-play aria-pressed="false">
-      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
-      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
-      <span data-listen-label>Escuchar este artículo</span>
-    </button>
-    <span class="listen-time" data-listen-time></span>
-  </div>
-  <div class="listen-panel" data-listen-panel hidden>
-    <input class="listen-seek" type="range" min="0" max="1" value="0" step="1" data-listen-seek aria-label="Posición de la lectura">
-    <button class="listen-chip" type="button" data-listen-speed aria-label="Cambiar velocidad">1×</button>
-    <select class="listen-chip" data-listen-voice aria-label="Voz" hidden></select>
-    <button class="listen-chip" type="button" data-listen-stop>Detener</button>
-  </div>
-</div>`;
+    ? `<div class="listen"><audio controls preload="none" src="${esc(p.audio)}" aria-label="Escuchar este artículo"></audio></div>`
+    : "";
 
 const card = (p) => `<article class="card">
   ${media(p)}
@@ -238,7 +226,7 @@ const card = (p) => `<article class="card">
     ${tagsHtml(p.tags)}
     <h2 class="card-title"><a href="${p.url}">${esc(p.title)}</a></h2>
     ${p.description ? `<p class="card-excerpt">${esc(p.description)}</p>` : ""}
-    ${byline(p)}
+    ${byline(p, true)}
   </div>
 </article>`;
 
@@ -383,7 +371,7 @@ for (const [i, p] of posts.entries()) {
   </nav></div>
 </article>
 ${more.length ? `<section class="section" style="margin-top:56px"><div class="wrap"><h2 class="section-title">Sigue leyendo</h2><div class="grid">${more.map(card).join("")}</div></div></section>` : ""}`;
-  await write(`${p.slug}/index.html`, layout({ title: p.title, description: p.description, urlPath: p.url, body, image: p.image, ogType: "article", scripts: p.audio ? "" : '<script src="/js/listen.js" defer></script>' }));
+  await write(`${p.slug}/index.html`, layout({ title: p.title, description: p.description, urlPath: p.url, body, image: p.image, ogType: "article" }));
 }
 
 // ---------- páginas ----------

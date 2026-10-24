@@ -39,7 +39,4 @@ El JSON de Ghost trae solo los enlaces de las imágenes, no los archivos. Si con
 
 ## Audio en los artículos
 
-Cada artículo ofrece dos formas de escuchar:
-
-- **Voz automática (por defecto).** El botón "Escuchar este artículo" lee el texto con la voz del navegador del lector. Tiene pausa, velocidad, barra de posición, selector de voz y resalta el párrafo que se está leyendo. No lee la lista de referencias, las tablas ni el código. La calidad de la voz depende del dispositivo del lector; si su dispositivo no tiene una voz en español, el botón no aparece.
-- **Grabación propia.** En el panel, el campo "Audio (opcional)" acepta un MP3 o un enlace. Si el artículo tiene audio, el lector ve un reproductor con tu grabación y la voz automática no aparece. Los archivos subidos desde el panel se guardan en `static/audio/`. GitHub rechaza archivos de más de 100 MB; para audios largos usa un enlace externo.
+Si quieres, puedes agregar tu propia grabación a un artículo. En el panel, el campo "Audio (opcional)" acepta un MP3 o un enlace, y el artículo muestra un reproductor justo debajo del autor. Si lo dejas vacío, el artículo no muestra ningún reproductor. Los archivos subidos desde el panel se guardan en `static/audio/`. GitHub rechaza archivos de más de 100 MB; para audios largos usa un enlace externo.
