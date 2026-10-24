@@ -1,6 +1,6 @@
 {
   "title": "Mecánica Muscular",
-  "tagline": "Mecánica Muscular",
+  "tagline": "Ciencia del ejercicio, un estudio a la vez.",
   "description": "Descubre los últimos avances en ciencias del ejercicio y nutrición: análisis detallados y desgloses de las investigaciones más recientes.",
   "lang": "es",
   "url": "",
@@ -26,5 +26,7 @@
     }
   ],
   "social": [],
-  "footer_note": ""
+  "footer_note": "",
+  "hero_link_label": "Quién escribe",
+  "hero_link_url": "/about-2/"
 }
