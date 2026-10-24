@@ -11,6 +11,18 @@
     });
   }
 
+  // Imágenes que no cargan: se reemplazan por el bloque con la inicial
+  document.querySelectorAll(".card-media img").forEach(function (img) {
+    function fail() {
+      var box = img.parentNode;
+      if (!box) return;
+      box.classList.add("placeholder");
+      img.remove();
+    }
+    if (img.complete && img.naturalWidth === 0) fail();
+    else img.addEventListener("error", fail);
+  });
+
   // Búsqueda
   var panel = document.getElementById("search");
   if (!panel) return;

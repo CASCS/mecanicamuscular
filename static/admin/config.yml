@@ -22,6 +22,13 @@ collections:
       - { label: Fecha, name: date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ss.SSS[Z]" }
       - { label: Resumen, name: description, widget: text, hint: "Aparece en las tarjetas y en los resultados de búsqueda." }
       - { label: Imagen de portada, name: image, widget: image, required: false }
+      - label: Audio (opcional)
+        name: audio
+        widget: file
+        required: false
+        media_folder: /static/audio
+        public_folder: /audio
+        hint: "Sube una grabación en MP3 o pega su enlace. Si la agregas, el lector escucha tu voz; si la dejas vacía, el artículo ofrece una voz automática."
       - { label: Etiquetas, name: tags, widget: list, required: false }
       - { label: Destacado, name: featured, widget: boolean, default: false, hint: "Los destacados aparecen arriba en la portada." }
       - { label: Borrador, name: draft, widget: boolean, default: false }
@@ -47,7 +54,9 @@ collections:
         file: content/settings/site.json
         fields:
           - { label: Nombre del blog, name: title, widget: string }
-          - { label: Lema (titular de la portada), name: tagline, widget: string }
+          - { label: Titular de la portada, name: tagline, widget: string }
+          - { label: Botón secundario de la portada (texto), name: hero_link_label, widget: string, required: false }
+          - { label: Botón secundario de la portada (enlace), name: hero_link_url, widget: string, required: false }
           - { label: Descripción, name: description, widget: text }
           - { label: Idioma (código), name: lang, widget: string, default: es }
           - { label: Dirección del sitio, name: url, widget: string, required: false, hint: "Ejemplo: https://miblog.com (se usa para RSS y sitemap)." }

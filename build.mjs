@@ -84,6 +84,7 @@ for (const file of await listMd(path.join(ROOT, "content/posts"))) {
     title: data.title || slug,
     description: data.description || "",
     image: localMissing(data.image) ? "" : data.image || "",
+    audio: localMissing(data.audio) ? "" : data.audio || "",
     tags,
     featured: !!data.featured,
     date,
@@ -118,9 +119,10 @@ const icons = {
   close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
 };
 
-const initial = (name) => esc((name || "?").trim().charAt(0).toUpperCase());
+// Primera letra o número del texto (salta signos como ¿ o ¡ al inicio de los títulos)
+const initial = (name) => esc((String(name || "?").trim().replace(/^[^\p{L}\p{N}]+/u, "").charAt(0) || "?").toUpperCase());
 
-function layout({ title, description, urlPath, body, image, ogType = "website", afterRecommended = false }) {
+function layout({ title, description, urlPath, body, image, ogType = "website", afterRecommended = false, scripts = "" }) {
   const fullTitle = title ? `${title} · ${site.title}` : site.title;
   const desc = description || site.description;
   const canonical = BASE ? `${BASE}${urlPath}` : "";
@@ -192,6 +194,7 @@ ${body}
   </div>
 </div>
 <script src="/js/main.js" defer></script>
+${scripts}
 </body>
 </html>`;
 }
@@ -203,11 +206,31 @@ const tagsHtml = (tags) =>
 
 const media = (p, extra = "") =>
   p.image
-    ? `<a class="card-media${extra}" href="${p.url}" tabindex="-1" aria-hidden="true"><img src="${esc(p.image)}" alt="" loading="lazy"></a>`
+    ? `<a class="card-media${extra}" href="${p.url}" data-initial="${initial(p.title)}" tabindex="-1" aria-hidden="true"><img src="${esc(p.image)}" alt="" loading="lazy"></a>`
     : `<a class="card-media placeholder${extra}" href="${p.url}" tabindex="-1" aria-hidden="true">${initial(p.title)}</a>`;
 
 const byline = (p) =>
   `<div class="byline"><span class="avatar" aria-hidden="true">${initial(site.author)}</span><span><strong>${esc(site.author)}</strong> · <time datetime="${p.date.toISOString()}">${fmtDate(p.date)}</time> · ${p.minutes} min de lectura</span></div>`;
+
+const listen = (p) =>
+  p.audio
+    ? `<div class="listen listen-file"><audio controls preload="none" src="${esc(p.audio)}" aria-label="Escuchar este artículo"></audio></div>`
+    : `<div class="listen" data-listen hidden>
+  <div class="listen-row">
+    <button class="listen-main" type="button" data-listen-play aria-pressed="false">
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+      <span data-listen-label>Escuchar este artículo</span>
+    </button>
+    <span class="listen-time" data-listen-time></span>
+  </div>
+  <div class="listen-panel" data-listen-panel hidden>
+    <input class="listen-seek" type="range" min="0" max="1" value="0" step="1" data-listen-seek aria-label="Posición de la lectura">
+    <button class="listen-chip" type="button" data-listen-speed aria-label="Cambiar velocidad">1×</button>
+    <select class="listen-chip" data-listen-voice aria-label="Voz" hidden></select>
+    <button class="listen-chip" type="button" data-listen-stop>Detener</button>
+  </div>
+</div>`;
 
 const card = (p) => `<article class="card">
   ${media(p)}
@@ -229,20 +252,78 @@ const pager = (current, total, base) => {
 };
 
 // ---------- portada y paginación ----------
-const totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+// La primera página muestra el artículo más reciente como destacado y PER_PAGE tarjetas debajo.
+const totalPages = Math.max(1, Math.ceil(Math.max(0, posts.length - 1) / PER_PAGE));
 const featured = posts.filter((p) => p.featured).slice(0, 3);
 
+// Gráfico del banner: una fila por tema (los 6 con más artículos).
+// Barra = del primer al último artículo del tema · cuadrado = mediana de fechas, más grande con más artículos.
+function topicPlot() {
+  const rows = [...tagMap.values()]
+    .map((t) => {
+      const ts = t.posts.map((p) => p.date.getTime()).sort((a, b) => a - b);
+      return { ...t, count: ts.length, min: ts[0], max: ts[ts.length - 1], mid: ts[Math.floor((ts.length - 1) / 2)] };
+    })
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, lang))
+    .slice(0, 6);
+  if (!rows.length) return "";
+
+  const y0 = posts[posts.length - 1].date.getUTCFullYear();
+  const y1 = posts[0].date.getUTCFullYear();
+  const d0 = Date.UTC(y0, 0, 1);
+  const d1 = Date.UTC(y1 + 1, 0, 1);
+  const pct = (t) => (((t - d0) / (d1 - d0)) * 100).toFixed(2);
+  const top = rows[0].count;
+  const years = Array.from({ length: y1 - y0 + 1 }, (_, i) => y0 + i);
+
+  const rowHtml = rows
+    .map((r, i) => {
+      const size = Math.round(14 + 14 * Math.sqrt(r.count / top));
+      return `<li class="plot-row" style="--i:${i}">
+      <a class="plot-label" href="/tag/${hrefSlug(r.slug)}/">${esc(r.name)}</a>
+      <span class="plot-track" aria-hidden="true">
+        <span class="plot-range" style="left:${pct(r.min)}%;width:${(pct(r.max) - pct(r.min)).toFixed(2)}%"></span>
+        <span class="plot-dot" style="left:${pct(r.mid)}%;--s:${size}px"></span>
+      </span>
+      <span class="plot-count">${r.count}<span class="sr-only"> artículos</span></span>
+    </li>`;
+    })
+    .join("");
+
+  return `<figure class="plot">
+  <div class="plot-body">
+    <div class="plot-grid" aria-hidden="true">${years.map((y) => `<span style="left:${pct(Date.UTC(y, 0, 1))}%"></span>`).join("")}</div>
+    <ul class="plot-rows">${rowHtml}</ul>
+    <div class="plot-axis" aria-hidden="true">${years.filter((_, i) => i % 2 === 0).map((y) => `<span style="left:${pct(Date.UTC(y, 0, 1))}%">${y}</span>`).join("")}</div>
+  </div>
+  <figcaption>${posts.length} artículos desde ${y0}. La barra va del primer al último artículo de cada tema y el cuadrado crece con la cantidad.</figcaption>
+</figure>`;
+}
+
+function heroHtml() {
+  const link = site.hero_link_url
+    ? `<a class="btn outline" href="${esc(site.hero_link_url)}">${esc(site.hero_link_label || "Conocer más")}</a>`
+    : "";
+  return `<section class="hero"><div class="wrap"><div class="hero-panel">
+  <div class="hero-copy">
+    <h1>${esc(site.tagline || site.title)}</h1>
+    ${site.description ? `<p>${esc(site.description)}</p>` : ""}
+    <div class="hero-actions">
+      ${posts.length ? `<a class="btn light" href="#ultimo">Leer lo último</a>` : ""}
+      ${link}
+    </div>
+  </div>
+  ${topicPlot()}
+</div></div></section>`;
+}
+
 for (let n = 1; n <= totalPages; n++) {
-  const slice = posts.slice((n - 1) * PER_PAGE, n * PER_PAGE);
+  const slice = posts.slice(1 + (n - 1) * PER_PAGE, 1 + n * PER_PAGE);
   const recommended = posts.filter((p) => p.featured).slice(3, 8);
   let body = "";
 
   if (n === 1) {
-    body += `<section class="hero"><div class="wrap">
-  <h1>${esc(site.tagline || site.title)}</h1>
-  ${site.description ? `<p>${esc(site.description)}</p>` : ""}
-  ${site.subscribe_url ? `<a class="btn" href="${esc(site.subscribe_url)}">Suscribirse</a>` : ""}
-</div></section>`;
+    body += heroHtml();
     if (featured.length) {
       body += `<section class="section"><div class="wrap">
   <h2 class="section-title">Para empezar</h2>
@@ -256,9 +337,10 @@ for (let n = 1; n <= totalPages; n++) {
   if (!posts.length) {
     body += `<section class="empty"><div class="wrap"><h1>Aún no hay artículos</h1><p>Entra a /admin/ para publicar el primero.</p></div></section>`;
   } else {
-    body += `<section class="section"><div class="wrap">
+    body += `<section class="section"${n === 1 ? ' id="ultimo"' : ""}><div class="wrap">
   <h2 class="section-title">${n === 1 ? "Lo último" : "Más artículos"}</h2>
-  <div class="grid">${slice.map(card).join("")}</div>
+  ${n === 1 ? `<div class="grid featured lead">${card(posts[0])}</div>` : ""}
+  ${slice.length ? `<div class="grid">${slice.map(card).join("")}</div>` : ""}
   ${pager(n, totalPages, "/")}
 </div></section>`;
   }
@@ -291,6 +373,7 @@ for (const [i, p] of posts.entries()) {
     <h1>${esc(p.title)}</h1>
     ${p.description ? `<p class="lead">${esc(p.description)}</p>` : ""}
     ${byline(p)}
+    ${listen(p)}
   </header>
   ${p.image ? `<figure class="wrap cover"><img src="${esc(p.image)}" alt=""></figure>` : ""}
   <div class="wrap"><div class="prose">${p.html}</div>
@@ -300,7 +383,7 @@ for (const [i, p] of posts.entries()) {
   </nav></div>
 </article>
 ${more.length ? `<section class="section" style="margin-top:56px"><div class="wrap"><h2 class="section-title">Sigue leyendo</h2><div class="grid">${more.map(card).join("")}</div></div></section>` : ""}`;
-  await write(`${p.slug}/index.html`, layout({ title: p.title, description: p.description, urlPath: p.url, body, image: p.image, ogType: "article" }));
+  await write(`${p.slug}/index.html`, layout({ title: p.title, description: p.description, urlPath: p.url, body, image: p.image, ogType: "article", scripts: p.audio ? "" : '<script src="/js/listen.js" defer></script>' }));
 }
 
 // ---------- páginas ----------

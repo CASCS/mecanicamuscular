@@ -36,3 +36,10 @@ npm run dev
 ### Imágenes propias de Ghost
 
 El JSON de Ghost trae solo los enlaces de las imágenes, no los archivos. Si conservas la carpeta `content` de tu Ghost antiguo, copia sus carpetas `images` y `media` dentro de `static/ghost-content/`. El archivo `ghost-images-needed.txt` lista cada archivo que los artículos esperan. Mientras una imagen no esté en esa carpeta, el sitio la omite y la tarjeta muestra un bloque de color con la inicial del título.
+
+## Audio en los artículos
+
+Cada artículo ofrece dos formas de escuchar:
+
+- **Voz automática (por defecto).** El botón "Escuchar este artículo" lee el texto con la voz del navegador del lector. Tiene pausa, velocidad, barra de posición, selector de voz y resalta el párrafo que se está leyendo. No lee la lista de referencias, las tablas ni el código. La calidad de la voz depende del dispositivo del lector; si su dispositivo no tiene una voz en español, el botón no aparece.
+- **Grabación propia.** En el panel, el campo "Audio (opcional)" acepta un MP3 o un enlace. Si el artículo tiene audio, el lector ve un reproductor con tu grabación y la voz automática no aparece. Los archivos subidos desde el panel se guardan en `static/audio/`. GitHub rechaza archivos de más de 100 MB; para audios largos usa un enlace externo.
