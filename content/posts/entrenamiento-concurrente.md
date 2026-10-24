@@ -14,7 +14,7 @@ tags:
 featured: false
 draft: false
 ---
-Este artículo es una revisión y un desglose del estudio: [Compatibility of Concurrent Aerobic and Strength Training for Skeletal Muscle Size and Function: An Updated Systematic Review and Meta-Analysis](< https://doi.org/10.1007/s40279-021-01587-7>) de Schumann y cols. (2022).
+Este artículo es una revisión y un desglose del estudio: [Compatibility of Concurrent Aerobic and Strength Training for Skeletal Muscle Size and Function: An Updated Systematic Review and Meta-Analysis](https://doi.org/10.1007/s40279-021-01587-7) de Schumann y cols. (2022).
 
 - - -
 
