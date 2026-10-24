@@ -1,6 +1,7 @@
 // Generador estático: lee content/ (Markdown + JSON) y escribe dist/
 import fs from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
@@ -62,6 +63,11 @@ function renderMd(md) {
 }
 
 await fs.rm(DIST, { recursive: true, force: true });
+
+// Versión de cada archivo según su contenido: cuando cambias el CSS o el JS, la dirección cambia
+// (/css/style.css?v=…) y ningún navegador puede seguir usando la copia vieja.
+const assetHash = async (rel) => createHash("md5").update(await fs.readFile(path.join(ROOT, "static", rel))).digest("hex").slice(0, 8);
+const V = { css: await assetHash("css/style.css"), js: await assetHash("js/main.js") };
 
 // ---------- carga de contenido ----------
 const site = JSON.parse(await fs.readFile(path.join(ROOT, "content/settings/site.json"), "utf8"));
@@ -152,7 +158,7 @@ ${ogImage ? `<meta property="og:image" content="${esc(ogImage)}">` : ""}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.css?v=${V.css}">
 <style>:root{--accent:${esc(site.accent || "#2f5bff")}}</style>
 <script>try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
@@ -193,7 +199,7 @@ ${body}
     <p class="search-empty" hidden>No hay resultados. Prueba con otra palabra.</p>
   </div>
 </div>
-<script src="/js/main.js" defer></script>
+<script src="/js/main.js?v=${V.js}" defer></script>
 </body>
 </html>`;
 }
