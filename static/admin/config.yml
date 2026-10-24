@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TU-USUARIO/TU-REPOSITORIO   # cámbialo por tu repositorio de GitHub
+  repo: CASCS/mecanicamuscular   # cámbialo por tu repositorio de GitHub
   branch: main
 
 locale: es
