@@ -22,16 +22,16 @@ Entonces, ¿qué ocurre con la hipertrofia muscular y el entrenamiento pliométr
 
 Para abordar esta pregunta, veamos los detalles de una revisión y meta-análisis que tuvo por objetivo evaluar el efecto del entrenamiento pliométrico, centrado en saltos verticales, sobre la hipertrofia de los músculos del cuádriceps y los flexores plantares.
 
-* * *
+- - -
 
 ## El estudio
 
 Este estudio se configuró como una revisión sistemática y meta-análisis que se llevó a cabo bajo ciertos criterios de inclusión específicos:
 
--   Intervenciones con entrenamiento pliométrico de salto, es decir, ejercicios de saltabilidad que involucraran el ciclo de estiramiento-acortamiento. Estos programas de entrenamiento debían tener una duración mínima de 4 semanas.
--   Comparación entre grupos de entrenamiento y grupos de control, ya sea activo o pasivo.
--   Estudios que informaran resultados relacionados con la hipertrofia muscular esquelética, tales como medidas de área transversal muscular / fibra única, grosor muscular, masa corporal magra y circunferencia muscular.
--   Estudios con diseños de ensayos controlados aleatorizados, que incluyeron mediciones tanto en el inicio como en el seguimiento.
+* Intervenciones con entrenamiento pliométrico de salto, es decir, ejercicios de saltabilidad que involucraran el ciclo de estiramiento-acortamiento. Estos programas de entrenamiento debían tener una duración mínima de 4 semanas.
+* Comparación entre grupos de entrenamiento y grupos de control, ya sea activo o pasivo.
+* Estudios que informaran resultados relacionados con la hipertrofia muscular esquelética, tales como medidas de área transversal muscular / fibra única, grosor muscular, masa corporal magra y circunferencia muscular.
+* Estudios con diseños de ensayos controlados aleatorizados, que incluyeron mediciones tanto en el inicio como en el seguimiento.
 
 Siguiendo estos criterios, se procedió a realizar una búsqueda exhaustiva en diversas bases de datos científicas, incluyendo PubMed, SPORTDiscus, Web of Science y Cochrane Library. La calidad metodológica de los estudios seleccionados fue evaluada utilizando la escala PEDro.
 
@@ -41,35 +41,35 @@ En cuanto a los aspectos relacionados con la hipertrofia muscular, se observó q
 
 En la mayoría de los estudios, los programas de entrenamiento incorporaron una variedad de tipos de saltos, tales como saltos verticales bilaterales o unilaterales, además de saltos horizontales. La duración de los protocolos de entrenamiento varió entre 4 y 26 semanas, con una frecuencia semanal que osciló entre 2 y 7 sesiones. Cada sesión de entrenamiento tuvo una duración que varió entre 5 y 60 minutos, y el volumen total de saltos realizados por semana fluctuó entre 60 y 520.
 
-* * *
+- - -
 
 ## Resultados
 
 Los resultados del estudio indican que:
 
--   El entrenamiento con saltos pliométricos tiene efectos pequeños a moderados sobre la hipertrofia muscular esquelética, independientemente del sexo, la edad o la experiencia de entrenamiento (Figura 1).
+* El entrenamiento con saltos pliométricos tiene efectos pequeños a moderados sobre la hipertrofia muscular esquelética, independientemente del sexo, la edad o la experiencia de entrenamiento (Figura 1).
 
-* * *
+- - -
 
-![](/ghost-content/images/2025/08/fig05.jpg)
+![](https://www.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/888464/xml-images/fphys-13-888464-g005.webp)
 
-*****Figura 1.**** Gráficos de puntos con rangos de subgrupos categóricos sobre la hipertrofia del músculo esquelético*
+**Figura 1:** *Gráficos de puntos con rangos de subgrupos categóricos sobre la hipertrofia del músculo esquelético*
 
-* * *
+- - -
 
--   Se observaron efectos relativamente mayores en los no atletas en comparación con los atletas, y efectos moderados para los extensores de rodilla con un efecto menos concluyente en los flexores plantares (Figura 2).
+* Se observaron efectos relativamente mayores en los no atletas en comparación con los atletas, y efectos moderados para los extensores de rodilla con un efecto menos concluyente en los flexores plantares (Figura 2).
 
-![](/ghost-content/images/2025/08/fig04.jpg)
+![](https://www.frontiersin.org/api/ipx/f=webp/https://www.frontiersin.org/files/Articles/888464/xml-images/fphys-13-888464-g004.webp)
 
-*****Figura 2.**** Gráficos de rango de puntos de subgrupos categóricos sobre la hipertrofia muscular esquelética.*
+**\***Figura 2.**\*\* Gráficos de rango de puntos de subgrupos categóricos sobre la hipertrofia muscular esquelética.*
 
-* * *
+- - -
 
--   La frecuencia semanal de sesiones modera el efecto del entrenamiento con saltos pliométricos sobre la hipertrofia muscular esquelética, siendo mayores las adaptaciones hipertróficas cuanto mayor es la frecuencia semanal de entrenamiento con saltos pliométricos (Figura 1).
--   No se encontró evidencia clara de que la edad, el sexo, el período total de entrenamiento, la duración de la sesión única o el número de saltos por semana modulen el efecto del entrenamiento con saltos pliométricos sobre la hipertrofia muscular esquelética (Figura 1).
--   El método de evaluación de la hipertrofia muscular esquelética influye en los resultados, mostrando mayores efectos para la ecografía en comparación con la ecuación de predicción (Figura 2).
+* La frecuencia semanal de sesiones modera el efecto del entrenamiento con saltos pliométricos sobre la hipertrofia muscular esquelética, siendo mayores las adaptaciones hipertróficas cuanto mayor es la frecuencia semanal de entrenamiento con saltos pliométricos (Figura 1).
+* No se encontró evidencia clara de que la edad, el sexo, el período total de entrenamiento, la duración de la sesión única o el número de saltos por semana modulen el efecto del entrenamiento con saltos pliométricos sobre la hipertrofia muscular esquelética (Figura 1).
+* El método de evaluación de la hipertrofia muscular esquelética influye en los resultados, mostrando mayores efectos para la ecografía en comparación con la ecuación de predicción (Figura 2).
 
-* * *
+- - -
 
 ## ¿Qué significa esto?
 
@@ -79,21 +79,21 @@ Estos resultados concuerdan con investigaciones previas ([5](https://doi.org/10.
 
 Veamos algunos detalles:
 
-### #1. Nivel de entrenamiento
+### \#1. Nivel de entrenamiento
 
 Se registró un incremento del 11.5% al 18.8% en el área de la sección transversal del cuádriceps en individuos no deportistas. Por otro lado, en el grupo de deportistas, el aumento en el área de la sección transversal del muslo completo fue del 9.9%.
 
 Los efectos más acentuados en personas no atletas pueden explicarse por su menor masa muscular inicial y su mayor capacidad de respuesta a nuevos estímulos ([8](https://doi.org/10.1519/jsc.0000000000002200)). De manera similar, los resultados más pronunciados en los extensores de la rodilla (cuádriceps) podrían atribuirse a su participación predominante en los ejercicios de salto, además de su mayor potencial de hipertrofia en las fibras tipo II ([9](https://doi.org/10.1519/jsc.0b013e31816a834b)), que son más predominantes en esta área muscular en comparación con los flexores plantares (Gastrocnemius).
 
-### #2. Instrumentos de evaluación
+### \#2. Instrumentos de evaluación
 
 Este punto es bastante directo. Los hallazgos más destacados obtenidos mediante imágenes de ultrasonido pueden atribuirse a su mayor precisión y sensibilidad en comparación con las ecuaciones de predicción, que se basan en mediciones antropométricas y pueden introducir errores y variabilidad ([10](https://doi.org/10.3389/fphys.2019.00247)).
 
-### #3. Frecuencia de entrenamiento
+### \#3. Frecuencia de entrenamiento
 
 La frecuencia semanal de las sesiones de entrenamiento pliométrico parece influir en el efecto sobre la hipertrofia muscular esquelética, siendo más notables las mejoras estructurales cuanto mayor sea la frecuencia semanal. La mayoría de los estudios incorporados emplearon sesiones de entrenamiento pliométrico dos o tres veces por semana. En detalle, se observaron aumentos significativos (de 12.8% a 25.8% en la sección transversal del vasto lateral) en la hipertrofia muscular esquelética cuando se realizaron tres sesiones semanales de entrenamiento con saltos pliométricos, en contraste con incrementos más modestos (un 14% en el volumen del muslo) después de dos sesiones semanales. Estos resultados concuerdan con la literatura existente sobre el entrenamiento convencional de fuerza ([7](https://doi.org/10.47206/ijsc.v1i1.81), [11](https://doi.org/10.2165/00007256-200737030-00004)). En definitiva, una mayor frecuencia semanal de sesiones de entrenamiento con saltos pliométricos podría llevar a adaptaciones hipertróficas más notorias. No obstante, en futuras investigaciones, se debería buscar una comprensión más profunda de la relación entre la frecuencia del entrenamiento pliométrico y las adaptaciones hipertróficas, sobre todo considerando las alteraciones en el volumen e intensidad.
 
-* * *
+- - -
 
 ## Conclusiones e implicaciones practicas
 
@@ -105,21 +105,21 @@ Es importante destacar que el entrenamiento pliométrico tiende a favorecer la h
 
 En resumen, la pliometría presenta la capacidad de potenciar la hipertrofia muscular, aunque en una proporción considerablemente menor en comparación con el entrenamiento de fuerza convencional. No obstante, sigue siendo un enfoque excelente para mejorar la habilidad de activar unidades motoras de alto umbral. Combinar la pliometría con el entrenamiento de fuerza tradicional probablemente resulte en no solo mayores mejoras en fuerza y/o potencia, sino también en la generación de niveles más significativos de hipertrofia muscular.
 
-* * *
+- - -
 
 <details>
 <summary>Referencias</summary>
 
-1) Taube y cols. (2012). How Neurons Make Us Jump: The Neural Control of Stretch-Shortening Cycle Movements.
-2) Voigt, Dyhre-Poulsen, & Simonsen. (1998). Modulation of short latency stretch reflexes during human hopping.
-3) Dietz, Schmidtbleicher, & Noth. (1979). Neuronal mechanisms of human locomotion.
-4) Suchomel y cols. (2018). The Importance of Muscular Strength: Training Considerations.
-5) Ramírez- de la Cruz y cols. (2022). Effects of Plyometric Training on Lower Body Muscle Architecture, Tendon Structure, Stiffness and Physical Performance: A Systematic Review and Meta-analysis.
-6) Malisoux y cols. (2006). Stretch-shortening cycle exercises: an effective training paradigm to enhance power output of human single muscle fibers.
-7) Schoenfeld y cols. (2021). Resistance Training Recommendations to Maximize Muscle Hypertrophy in an Athletic Population: Position Stand of the IUSCA.
-8) Schoenfeld y cols. (2018). Strength and Hypertrophy Adaptations Between Low- vs. High-Load Resistance Training: A Systematic Review and Meta-analysis.
-9) Ebben y cols. (2008). Evaluation of Plyometric Intensity Using Electromyography.
-10) Haun y cols. (2019). A Critical Evaluation of the Biological Construct Skeletal Muscle Hypertrophy: Size Matters but So Does the Measurement.
-11) Wernbom, Augustsson, & Thomeé. (2007). The Influence of Frequency, Intensity, Volume and Mode of Strength Training on Whole Muscle Cross-Sectional Area in Humans.
+1. Taube y cols. (2012). How Neurons Make Us Jump: The Neural Control of Stretch-Shortening Cycle Movements.
+2. Voigt, Dyhre-Poulsen, & Simonsen. (1998). Modulation of short latency stretch reflexes during human hopping.
+3. Dietz, Schmidtbleicher, & Noth. (1979). Neuronal mechanisms of human locomotion.
+4. Suchomel y cols. (2018). The Importance of Muscular Strength: Training Considerations.
+5. Ramírez- de la Cruz y cols. (2022). Effects of Plyometric Training on Lower Body Muscle Architecture, Tendon Structure, Stiffness and Physical Performance: A Systematic Review and Meta-analysis.
+6. Malisoux y cols. (2006). Stretch-shortening cycle exercises: an effective training paradigm to enhance power output of human single muscle fibers.
+7. Schoenfeld y cols. (2021). Resistance Training Recommendations to Maximize Muscle Hypertrophy in an Athletic Population: Position Stand of the IUSCA.
+8. Schoenfeld y cols. (2018). Strength and Hypertrophy Adaptations Between Low- vs. High-Load Resistance Training: A Systematic Review and Meta-analysis.
+9. Ebben y cols. (2008). Evaluation of Plyometric Intensity Using Electromyography.
+10. Haun y cols. (2019). A Critical Evaluation of the Biological Construct Skeletal Muscle Hypertrophy: Size Matters but So Does the Measurement.
+11. Wernbom, Augustsson, & Thomeé. (2007). The Influence of Frequency, Intensity, Volume and Mode of Strength Training on Whole Muscle Cross-Sectional Area in Humans.
 
 </details>
