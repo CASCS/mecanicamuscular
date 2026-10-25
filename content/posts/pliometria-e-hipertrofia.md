@@ -1,11 +1,10 @@
 ---
 title: Impacto de la pliometría en la hipertrofia muscular
-date: '2025-09-08T03:21:47.000Z'
-description: >-
-  Estudio analizado: Effect of Plyometric Jump Training on Skeletal Muscle
-  Hypertrophy in Healthy Individuals: A Systematic Review With Multilevel
-  Meta-Analysis de Arntz y cols. (2022)
-image: /ghost-content/images/2025/08/cmj.png
+date: 2025-09-08T03:21:47.000Z
+description: "Estudio analizado: Effect of Plyometric Jump Training on Skeletal
+  Muscle Hypertrophy in Healthy Individuals: A Systematic Review With Multilevel
+  Meta-Analysis de Arntz y cols. (2022)"
+image: https://unsplash.com/es/fotos/un-hombre-y-una-mujer-en-un-gimnasio-AjXYu6sGHEQ
 tags:
   - Fuerza y Acondicionamiento
 featured: false
