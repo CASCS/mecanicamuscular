@@ -44,7 +44,7 @@ Para un análisis más detallado, se llevaron a cabo subanálisis con el propós
 
 ![](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs40279-021-01587-7/MediaObjects/40279_2021_1587_Fig2_HTML.png)
 
-**\***Figura 1:**\*\* Diagrama de bosque de estudios que compara las diferencias en la fuerza máxima.*
+**Figura 1**: *Diagrama de bosque de estudios que compara las diferencias en la fuerza máxima.*
 
 - - -
 
@@ -54,7 +54,7 @@ Para un análisis más detallado, se llevaron a cabo subanálisis con el propós
 
 ![](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs40279-021-01587-7/MediaObjects/40279_2021_1587_Fig3_HTML.png)
 
-**\***Figura 2:**\*\* Diagrama de bosque de estudios que comparan diferencias en fuerza explosiva.*
+**Figura 2:** *Diagrama de bosque de estudios que comparan diferencias en fuerza explosiva.*
 
 - - -
 
@@ -62,9 +62,9 @@ Para un análisis más detallado, se llevaron a cabo subanálisis con el propós
 
 - - -
 
-![](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs40279-021-01587-7/MediaObjects/40279_2021_1587_Fig4_HTML.png "*Figura 3:*** Diagrama de bosque de estudios que comparan diferencias en la hipertrofia muscular. IC= Intervalo de confianza, CSA= área de sección transversal muscular, DXA= absorciometría de rayos X de energía dual, RE= efectos aleatorios, SMD= diferencia de medias estandarizada.")
+![](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs40279-021-01587-7/MediaObjects/40279_2021_1587_Fig4_HTML.png)
 
-
+**Figura 3**: *Diagrama de bosque de estudios que comparan diferencias en la hipertrofia muscular. IC= Intervalo de confianza, CSA= área de sección transversal muscular, DXA= absorciometría de rayos X de energía dual, RE= efectos aleatorios, SMD= diferencia de medias estandarizada.*
 
 - - -
 
