@@ -44,12 +44,12 @@
     },
     {
       "title": "Maestría en Ciencias del Ejercicio",
-      "place": "Universidad de Tokio",
+      "place": "",
       "years": ""
     },
     {
       "title": "Maestría en Entrenamiento Deportivo",
-      "place": "Universidad Católica de Murcia (UCAM)",
+      "place": "",
       "years": ""
     }
   ],
@@ -59,7 +59,15 @@
     "Nutrición deportiva",
     "Deportes de combate"
   ],
-  "books": [],
+  "books": [
+    {
+      "label": "Ver libro",
+      "title": "The Pendulum System: A Periodisation Framework for Competitive Strikers",
+      "year": "2026",
+      "url": "https://www.amazon.co.jp/dp/B0H33TC3JL?ref_=mr_referred_us_jp_jp",
+      "cover": "https://m.media-amazon.com/images/I/51lAIIQweLL._SL1293_.jpg"
+    }
+  ],
   "name": "Yonathan Smoak",
   "photo": "",
   "headline": "Científico del ejercicio · Ph.D. (en curso) en Ciencias Aplicadas al Ejercicio Físico",
