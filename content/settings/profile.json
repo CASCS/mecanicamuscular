@@ -1,5 +1,13 @@
 {
-  "publications": [],
+  "publications": [
+    {
+      "kind": "Artículo",
+      "year": "2022",
+      "venue": "Journal of Strenght and Performance",
+      "authors": "Yonathan Smoak",
+      "title": "Effects of Free-weight with and without Elastic Band Tension on Upper-Body Strength and Muscular Endurance: A Randomized Parallel Trial"
+    }
+  ],
   "research_intro": "",
   "education": [
     {
