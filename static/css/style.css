@@ -284,3 +284,59 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .card-body > .card-excerpt { grid-row: 3; }
   .card-body > .byline { grid-row: 4; align-self: start; }
 }
+
+/* ===== Página de perfil (CV académico) ===== */
+.profile { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); padding-block: 56px 88px; align-items: start; }
+.profile-card { position: sticky; top: 92px; text-align: center; padding: 28px 24px; border: 1px solid var(--line, color-mix(in srgb, currentColor 14%, transparent)); border-radius: 18px; background: color-mix(in srgb, var(--accent) 4%, var(--bg, #fff)); }
+.avatar-xl { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; display: grid; place-items: center; font: 800 2.6rem/1 Manrope, Inter, sans-serif; color: #fff; background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 45%, #000)); }
+.profile-card h1 { font-size: 1.55rem; line-height: 1.15; margin: 0 0 8px; }
+.profile-role { margin: 0 0 6px; font-weight: 600; font-size: .95rem; }
+.profile-place { margin: 0 0 16px; opacity: .65; font-size: .9rem; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; }
+.profile-main .profile-links { justify-content: flex-start; margin: 0 0 20px; }
+.chip-link { display: inline-block; padding: 7px 14px; border-radius: 999px; font-size: .85rem; font-weight: 600; text-decoration: none; border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); color: var(--accent); transition: background .15s, color .15s; }
+.chip-link:hover { background: var(--accent); color: #fff; }
+.chip-link.small { padding: 4px 11px; font-size: .78rem; }
+.profile-section { margin-bottom: 56px; scroll-margin-top: 90px; }
+.profile-section h2 { font-size: 1.35rem; margin: 0 0 18px; padding-bottom: 10px; border-bottom: 2px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+.profile-bio { margin-top: 0; }
+.profile-bio p:first-child { font-size: 1.12rem; }
+.profile-lead { margin: 0 0 16px; }
+.profile-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 0; }
+.facts, .interests { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+.interests { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.interests li { padding: 6px 13px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 10%, transparent); font-size: .88rem; font-weight: 600; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid color-mix(in srgb, var(--accent) 35%, transparent); display: grid; gap: 18px; }
+.timeline li { position: relative; display: grid; gap: 2px; }
+.timeline li::before { content: ""; position: absolute; left: -24px; top: .45em; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.timeline span { font-size: .88rem; opacity: .7; }
+.pub-year { font-size: 1rem; margin: 26px 0 10px; color: var(--accent); }
+.pub-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.pub { padding: 14px 16px; border: 1px solid color-mix(in srgb, currentColor 12%, transparent); border-radius: 12px; }
+.pub .tag { display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; opacity: .65; margin-bottom: 4px; }
+.pub-title { font-size: 1.02rem; margin: 0 0 4px; line-height: 1.35; }
+.pub-title a { text-decoration: none; }
+.pub-title a:hover { color: var(--accent); }
+.pub-meta { margin: 0; font-size: .9rem; opacity: .8; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 24px; }
+.book { display: flex; flex-direction: column; gap: 6px; }
+.book h3 { font-size: 1rem; margin: 8px 0 0; line-height: 1.3; }
+.book-cover { display: block; aspect-ratio: 2 / 3; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 22px rgb(0 0 0 / .18); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.book-title-cover { display: grid; place-items: center; height: 100%; padding: 16px; text-align: center; font: 800 1.05rem/1.25 Manrope, Inter, sans-serif; color: #fff; background: linear-gradient(160deg, var(--accent), color-mix(in srgb, var(--accent) 40%, #000)); }
+.book-desc { margin: 0; font-size: .88rem; opacity: .8; }
+.book .btn { align-self: flex-start; margin-top: auto; }
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.project { padding: 18px; border: 1px solid color-mix(in srgb, currentColor 12%, transparent); border-radius: 14px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.project h3 { margin: 0; font-size: 1.02rem; }
+.project h3 a { text-decoration: none; }
+.project p { margin: 0; font-size: .9rem; opacity: .8; }
+@media (max-width: 900px) {
+  .profile { grid-template-columns: 1fr; padding-block: 36px 64px; }
+  .profile-card { position: static; }
+  .profile-cols { grid-template-columns: 1fr; gap: 0; }
+}
+.profile-bio { padding: 0; max-width: none; }
+.profile-bio p { max-width: none; }
+@media (max-width: 620px) { .books { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
