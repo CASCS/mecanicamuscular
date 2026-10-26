@@ -16,6 +16,19 @@
           "url": "https://zenodo.org/records/6992436/files/Smoak%20(2022)%20-%20Effects%20of%20Free-weight%20with%20and%20without%20Elastic%20Band%20Tension%20on%20Upper-Body%20Strength%20and%20Muscular%20Endurance.pdf?download=1"
         }
       ]
+    },
+    {
+      "title": "Randomized Trial Comparing Barbell and Dumbbell Bench Press on Maximal Strength and Power Output",
+      "authors": "Yonathan Smoak",
+      "links": [
+        {
+          "url": "https://doi.org/10.5281/zenodo.23319268",
+          "label": "DOI"
+        }
+      ],
+      "venue": "Journal of Strength and Performance",
+      "year": "2023",
+      "kind": "Artículo"
     }
   ],
   "research_intro": "",
@@ -52,6 +65,10 @@
     {
       "label": "Orcid",
       "url": "https://orcid.org/0000-0002-8842-8030"
+    },
+    {
+      "label": "Research Gate",
+      "url": "https://www.researchgate.net/profile/Yonathan-Smoak"
     }
   ],
   "projects": [],
