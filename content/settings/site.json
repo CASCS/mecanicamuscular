@@ -1,12 +1,4 @@
 {
-  "title": "Mecánica Muscular",
-  "tagline": "Ciencia del ejercicio, un estudio a la vez.",
-  "description": "Descubre los últimos avances en ciencias del ejercicio y nutrición: análisis detallados y desgloses de las investigaciones más recientes.",
-  "lang": "es",
-  "url": "",
-  "author": "Yonathan Smoak",
-  "accent": "#2f5bff",
-  "subscribe_url": "",
   "nav": [
     {
       "label": "Inicio",
@@ -25,8 +17,21 @@
       "url": "/mentorship/"
     }
   ],
-  "social": [],
-  "footer_note": "",
+  "accent": "#2f5bff",
+  "author": "Yonathan Smoak",
+  "social": [
+    {
+      "label": "Instagram",
+      "url": "https://instagram.com/mecanicamuscular"
+    }
+  ],
+  "lang": "es",
+  "tagline": "Ciencia del ejercicio, un estudio a la vez.",
+  "url": "",
+  "hero_link_url": "/about-2/",
   "hero_link_label": "Quién escribe",
-  "hero_link_url": "/about-2/"
+  "footer_note": "",
+  "title": "Mecánica Muscular",
+  "subscribe_url": "",
+  "description": "Descubre los últimos avances en ciencias del ejercicio y nutrición: análisis detallados y desgloses de las investigaciones más recientes."
 }
