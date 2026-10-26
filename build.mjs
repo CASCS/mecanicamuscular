@@ -54,9 +54,19 @@ const localMissing = (src) => {
   }
 };
 
+// Enlaces: quita espacios o %20 al inicio y al final, y agrega https:// si la dirección empieza por un dominio (doi.org/…, www.…)
+const cleanHref = (h) => {
+  let u = h.replace(/^(?:%20|\s)+|(?:%20|\s)+$/gi, "");
+  if (/^(?:www\.|[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}\/)/i.test(u) && !/^(?:https?:|mailto:|tel:|\/|#)/i.test(u)) u = "https://" + u;
+  return u;
+};
+
 function renderMd(md) {
   return marked
     .parse(md, { gfm: true, breaks: false })
+    .replace(/(<a\b[^>]*?\bhref=")([^"]*)(")/g, (m, a, h, z) => a + cleanHref(h) + z)
+    // una "dirección" con espacios en el dominio (http://Título del estudio…) no es un enlace: se deja solo el texto
+    .replace(/<a\b[^>]*\bhref="https?:\/\/[^"\/?#]*(?:%20| )[^"]*"[^>]*>([\s\S]*?)<\/a>/g, "$1")
     // si una imagen local todavía no está en static/, se omite en vez de mostrar un icono roto
     .replace(/<img\b[^>]*?\bsrc="([^"]+)"[^>]*>/g, (tag, src) => (localMissing(src) ? "" : tag))
     .replace(/<img /g, '<img loading="lazy" ');
@@ -71,6 +81,9 @@ const V = { css: await assetHash("css/style.css"), js: await assetHash("js/main.
 
 // ---------- carga de contenido ----------
 const site = JSON.parse(await fs.readFile(path.join(ROOT, "content/settings/site.json"), "utf8"));
+// Datos de la página de perfil ("Sobre mí"); si el archivo no existe, la página usa el diseño normal.
+let profile = {};
+try { profile = JSON.parse(await fs.readFile(path.join(ROOT, "content/settings/profile.json"), "utf8")); } catch {}
 const BASE = (process.env.URL || site.url || "").replace(/\/$/, "");
 const lang = site.lang || "es";
 
@@ -105,8 +118,21 @@ for (const file of await listMd(path.join(ROOT, "content/pages"))) {
   const { data, content } = matter(await fs.readFile(file, "utf8"));
   if (data.draft) continue;
   const slug = path.basename(file, ".md");
-  pages.push({ slug, url: `/${hrefSlug(slug)}/`, title: data.title || slug, description: data.description || "", html: renderMd(content) });
+  pages.push({ slug, url: `/${hrefSlug(slug)}/`, title: data.title || slug, description: data.description || "", layout: data.layout || "", html: renderMd(content) });
 }
+
+// Enlaces internos a artículos y páginas: "/mmplus/nombre/" (prefijo antiguo de Ghost) pasa a "/nombre/".
+// Si el destino no está publicado (borrador o inexistente), el enlace se reemplaza por su texto para no dejar un enlace roto.
+const knownSlugs = new Set([...posts.map((x) => x.slug), ...pages.map((x) => x.slug)]);
+const fixInternal = (html) =>
+  html.replace(/<a\b[^>]*?\bhref="(\/(?:mmplus\/)?([^\/."#?]+)\/?)([#?][^"]*)?"[^>]*>([\s\S]*?)<\/a>/g, (m, path, name, rest, text) => {
+    let slug;
+    try { slug = decodeURIComponent(name); } catch { slug = name; }
+    if (["tag", "page", "admin", "css", "js", "images", "ghost-content", "audio"].includes(slug)) return m;
+    if (!knownSlugs.has(slug)) return text;
+    return m.replace(`href="${path}`, `href="/${name}/`);
+  });
+for (const x of [...posts, ...pages]) x.html = fixInternal(x.html);
 
 const tagMap = new Map();
 for (const p of posts) {
@@ -380,9 +406,135 @@ ${more.length ? `<section class="section" style="margin-top:56px"><div class="wr
   await write(`${p.slug}/index.html`, layout({ title: p.title, description: p.description, urlPath: p.url, body, image: p.image, ogType: "article" }));
 }
 
+// ---------- página de perfil (estilo CV académico) ----------
+const list = (a) => (Array.isArray(a) ? a.filter(Boolean) : []);
+const safeUrl = (u) => {
+  let c = cleanHref(String(u || "").trim());
+  if (/^[^\s@\/]+@[^\s@\/]+\.[a-z]{2,}$/i.test(c)) c = `mailto:${c}`;
+  return /^(?:https?:\/\/|mailto:|\/|#)/i.test(c) ? c : "";
+};
+const relFor = (u) => (/^https?:/i.test(u) ? ' rel="noopener"' : "");
+const pill = (l, cls = "chip-link") => {
+  const u = safeUrl(l && l.url);
+  return u && l.label ? `<a class="${cls}" href="${esc(u)}"${relFor(u)}>${esc(l.label)}</a>` : "";
+};
+const initials2 = (name) =>
+  esc(String(name || "?").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w.replace(/^[^\p{L}\p{N}]+/u, "").charAt(0)).join("").toUpperCase() || "?");
+
+// Resalta tu nombre en la lista de autores de cada publicación (Smoak, Y. · Y. Smoak · Yonathan Smoak)
+const escRx = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+function boldMe(authors) {
+  const parts = String(profile.name || site.author || "").trim().split(/\s+/).filter(Boolean);
+  const safe = esc(authors);
+  if (parts.length < 2) return safe;
+  const first = escRx(parts[0]), sur = escRx(parts[parts.length - 1]), ini = escRx(parts[0][0]);
+  return safe.replace(new RegExp(`(?:(?:${first}|${ini}\\.?)\\s+)?${sur}(?:,?\\s+(?:${first}|${ini}\\.?))?`, "g"), "<strong>$&</strong>");
+}
+
+function profilePage(pg) {
+  const P = profile;
+  const name = P.name || site.author || site.title;
+  const hasPhoto = P.photo && safeUrl(P.photo) && !localMissing(P.photo);
+  const photo = hasPhoto
+    ? `<img class="avatar-xl" src="${esc(P.photo)}" alt="Foto de ${esc(name)}">`
+    : `<div class="avatar-xl" aria-hidden="true">${initials2(name)}</div>`;
+  const links = list(P.links).map((l) => pill(l)).filter(Boolean).join("");
+
+  const facts = list(P.highlights).filter((t) => typeof t === "string" && t.trim());
+  const interests = list(P.interests).filter((t) => typeof t === "string" && t.trim());
+  const education = list(P.education).filter((e) => e.title);
+  const pubs = list(P.publications).filter((x) => x.title);
+  const books = list(P.books).filter((b) => b.title);
+  const projects = list(P.projects).filter((x) => x.title);
+  const researchLinks = list(P.research_links).map((l) => pill(l)).filter(Boolean).join("");
+
+  const pubGroups = [...new Set(pubs.map((x) => String(x.year || "").trim() || "Sin fecha"))].sort((a, b) => (parseInt(b) || 0) - (parseInt(a) || 0));
+  const pubHtml = pubGroups
+    .map((y) => {
+      const items = pubs
+        .filter((x) => (String(x.year || "").trim() || "Sin fecha") === y)
+        .map((x) => {
+          const ls = list(x.links);
+          const main = ls.length ? safeUrl(ls[0].url) : "";
+          const title = main ? `<a href="${esc(main)}"${relFor(main)}>${esc(x.title)}</a>` : esc(x.title);
+          return `<li class="pub">
+        ${x.kind ? `<span class="tag">${esc(x.kind)}</span>` : ""}
+        <h4 class="pub-title">${title}</h4>
+        ${x.authors ? `<p class="pub-meta">${boldMe(x.authors)}</p>` : ""}
+        ${x.venue ? `<p class="pub-meta"><em>${esc(x.venue)}</em></p>` : ""}
+        ${ls.length ? `<div class="pub-links">${ls.map((l) => pill(l, "chip-link small")).join("")}</div>` : ""}
+      </li>`;
+        })
+        .join("");
+      return `<div class="pub-group"><h3 class="pub-year">${esc(y)}</h3><ul class="pub-list">${items}</ul></div>`;
+    })
+    .join("");
+
+  const bookHtml = books
+    .map((b) => {
+      const u = safeUrl(b.url);
+      const cover =
+        b.cover && !localMissing(b.cover)
+          ? `<img src="${esc(b.cover)}" alt="Portada de ${esc(b.title)}" loading="lazy">`
+          : `<span class="book-title-cover" aria-hidden="true">${esc(b.title)}</span>`;
+      const wrap = u ? `<a class="book-cover" href="${esc(u)}"${relFor(u)} tabindex="-1" aria-hidden="true">${cover}</a>` : `<div class="book-cover" aria-hidden="true">${cover}</div>`;
+      return `<article class="book">
+      ${wrap}
+      <h3>${esc(b.title)}</h3>
+      ${b.year ? `<p class="pub-meta">${esc(b.year)}</p>` : ""}
+      ${b.description ? `<p class="book-desc">${esc(b.description)}</p>` : ""}
+      ${u ? `<a class="btn ghost" href="${esc(u)}"${relFor(u)}>${esc(b.label || "Ver libro")}</a>` : ""}
+    </article>`;
+    })
+    .join("");
+
+  const projectHtml = projects
+    .map((x) => {
+      const u = safeUrl(x.url);
+      return `<article class="project">
+      <h3>${u ? `<a href="${esc(u)}"${relFor(u)}>${esc(x.title)}</a>` : esc(x.title)}</h3>
+      ${x.description ? `<p>${esc(x.description)}</p>` : ""}
+      ${u && x.label ? `<a class="chip-link small" href="${esc(u)}"${relFor(u)}>${esc(x.label)}</a>` : ""}
+    </article>`;
+    })
+    .join("");
+
+  const section = (id, title, inner) => `<section class="profile-section" id="${id}"><h2>${esc(title)}</h2>${inner}</section>`;
+
+  const main = [
+    pg.html.trim() ? section("sobre-mi", "Sobre mí", `<div class="prose profile-bio">${pg.html}</div>`) : "",
+    facts.length ? section("trayectoria", "Trayectoria", `<ul class="facts">${facts.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`) : "",
+    interests.length || education.length
+      ? `<div class="profile-cols">
+      ${interests.length ? section("intereses", "Intereses", `<ul class="interests">${interests.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`) : ""}
+      ${education.length ? section("formacion", "Formación", `<ol class="timeline">${education.map((e) => `<li><strong>${esc(e.title)}</strong>${e.place ? `<span>${esc(e.place)}</span>` : ""}${e.years ? `<span>${esc(e.years)}</span>` : ""}</li>`).join("")}</ol>`) : ""}
+    </div>`
+      : "",
+    P.research_intro || researchLinks || pubs.length
+      ? section("investigacion", "Investigación", `${P.research_intro ? `<p class="profile-lead">${esc(P.research_intro)}</p>` : ""}${researchLinks ? `<div class="profile-links">${researchLinks}</div>` : ""}${pubHtml}`)
+      : "",
+    books.length ? section("libros", "Libros", `<div class="books">${bookHtml}</div>`) : "",
+    projects.length ? section("proyectos", "Proyectos", `<div class="projects">${projectHtml}</div>`) : "",
+  ].join("\n");
+
+  return `<div class="wrap profile">
+  <aside class="profile-card">
+    ${photo}
+    <h1>${esc(name)}</h1>
+    ${P.headline ? `<p class="profile-role">${esc(P.headline)}</p>` : ""}
+    ${P.location ? `<p class="profile-place">${esc(P.location)}</p>` : ""}
+    ${links ? `<div class="profile-links">${links}</div>` : ""}
+  </aside>
+  <div class="profile-main">
+${main}
+  </div>
+</div>`;
+}
+
 // ---------- páginas ----------
 for (const pg of pages) {
-  const body = `<section class="wrap article-head"><h1>${esc(pg.title)}</h1></section>
+  const isProfile = pg.layout === "profile";
+  const body = isProfile ? profilePage(pg) : `<section class="wrap article-head"><h1>${esc(pg.title)}</h1></section>
 <div class="wrap"><div class="prose" style="margin-top:0">${pg.html}</div></div>
 <div style="height:72px"></div>`;
   await write(`${pg.slug}/index.html`, layout({ title: pg.title, description: pg.description, urlPath: pg.url, body }));
