@@ -1,15 +1,22 @@
 {
-  "name": "Yonathan Smoak",
-  "headline": "Científico del ejercicio · Ph.D. (en curso) en Ciencias Aplicadas al Ejercicio Físico",
-  "location": "Japón",
-  "photo": "",
-  "links": [],
-  "highlights": [
-    "Fundador de un laboratorio de investigación en Japón",
-    "Investigaciones publicadas en revistas científicas del área",
-    "Más de 10 conferencias para entrenadores, dietistas y otros profesionales de la salud",
-    "Atleta de karate, kickboxing y muay thai (amateur y profesional)",
-    "Asesor de un culturista natural hasta su tarjeta IFBB Pro"
+  "publications": [],
+  "research_intro": "",
+  "education": [
+    {
+      "title": "Ph.D. en Ciencias Aplicadas al Ejercicio Físico",
+      "place": "",
+      "years": "En curso"
+    },
+    {
+      "title": "Maestría en Ciencias del Ejercicio",
+      "place": "Universidad de Tokio",
+      "years": ""
+    },
+    {
+      "title": "Maestría en Entrenamiento Deportivo",
+      "place": "Universidad Católica de Murcia (UCAM)",
+      "years": ""
+    }
   ],
   "interests": [
     "Hipertrofia y fuerza",
@@ -17,14 +24,24 @@
     "Nutrición deportiva",
     "Deportes de combate"
   ],
-  "education": [
-    { "title": "Ph.D. en Ciencias Aplicadas al Ejercicio Físico", "place": "", "years": "En curso" },
-    { "title": "Maestría en Ciencias del Ejercicio", "place": "Universidad de Tokio", "years": "" },
-    { "title": "Maestría en Entrenamiento Deportivo", "place": "Universidad Católica de Murcia (UCAM)", "years": "" }
-  ],
-  "research_intro": "",
-  "research_links": [],
-  "publications": [],
   "books": [],
-  "projects": []
+  "name": "Yonathan Smoak",
+  "photo": "",
+  "headline": "Científico del ejercicio · Ph.D. (en curso) en Ciencias Aplicadas al Ejercicio Físico",
+  "research_links": [],
+  "location": "Japón",
+  "links": [
+    {
+      "label": "Orcid",
+      "url": "https://orcid.org/0000-0002-8842-8030"
+    }
+  ],
+  "projects": [],
+  "highlights": [
+    "Fundador de un laboratorio de investigación en Japón",
+    "Investigaciones publicadas en revistas científicas del área",
+    "Más de 10 conferencias para entrenadores, dietistas y otros profesionales de la salud",
+    "Atleta de karate, kickboxing y muay thai (amateur y profesional)",
+    "Asesor de un culturista natural hasta su tarjeta IFBB Pro"
+  ]
 }
