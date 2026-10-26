@@ -1,10 +1,11 @@
 ---
 title: Sobre mí
-description: Yonathan Smoak, investigador en ciencias del ejercicio y autor de Mecánica Muscular.
+description: Yonathan Smoak, investigador en ciencias del ejercicio y autor de
+  Mecánica Muscular.
 layout: profile
 draft: false
 ---
-Soy científico del ejercicio, autor y conferencista. Mi trabajo se centra en cómo el entrenamiento y la nutrición se traducen en fuerza, hipertrofia y rendimiento, y en explicar esa evidencia con claridad.
+Investigador en Ciencias del ejercicio, autor y conferencista. Mi trabajo se centra en cómo el entrenamiento y la nutrición se traducen en fuerza, hipertrofia y rendimiento, y en explicar esa evidencia con claridad.
 
 Actualmente curso un Ph.D. en Ciencias Aplicadas al Ejercicio Físico y dirijo mi propio laboratorio de investigación en Japón. Mecánica Muscular es el lugar donde convierto los estudios en artículos que cualquiera pueda leer y aplicar.
 
