@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: CASCS/mecanicamuscular   # cámbialo por tu repositorio de GitHub
+  repo: TU-USUARIO/TU-REPOSITORIO   # cámbialo por tu repositorio de GitHub
   branch: main
 
 locale: es
@@ -44,6 +44,7 @@ collections:
     fields:
       - { label: Título, name: title, widget: string }
       - { label: Resumen, name: description, widget: text, required: false }
+      - { label: Diseño, name: layout, widget: select, options: [{ label: Normal, value: "" }, { label: "Perfil (CV académico)", value: profile }], default: "", required: false, hint: "Usa «Perfil» solo en la página Sobre mí; toma sus datos de Ajustes → Perfil." }
       - { label: Texto, name: body, widget: markdown }
 
   - name: settings
@@ -77,3 +78,75 @@ collections:
               - { label: Nombre, name: label, widget: string }
               - { label: Enlace, name: url, widget: string }
           - { label: Nota del pie, name: footer_note, widget: string, required: false }
+      - name: profile
+        label: Perfil (Sobre mí)
+        file: content/settings/profile.json
+        fields:
+          - { label: Nombre, name: name, widget: string }
+          - { label: Titular (cargo o grado), name: headline, widget: string, required: false }
+          - { label: Ubicación, name: location, widget: string, required: false }
+          - { label: Foto, name: photo, widget: image, required: false, hint: "Si la dejas vacía se muestran tus iniciales." }
+          - label: Enlaces principales
+            name: links
+            widget: list
+            required: false
+            hint: "ORCID, Google Scholar, ResearchGate, LinkedIn, correo (puedes escribir solo el correo)…"
+            fields:
+              - { label: Texto, name: label, widget: string }
+              - { label: Enlace, name: url, widget: string }
+          - { label: Datos destacados, name: highlights, widget: list, required: false, field: { label: Dato, name: item, widget: string } }
+          - { label: Intereses, name: interests, widget: list, required: false, field: { label: Interés, name: item, widget: string } }
+          - label: Formación
+            name: education
+            widget: list
+            required: false
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Institución, name: place, widget: string, required: false }
+              - { label: Años, name: years, widget: string, required: false }
+          - { label: Introducción a la investigación, name: research_intro, widget: text, required: false }
+          - label: Enlaces de investigación
+            name: research_links
+            widget: list
+            required: false
+            fields:
+              - { label: Texto, name: label, widget: string }
+              - { label: Enlace, name: url, widget: string }
+          - label: Publicaciones
+            name: publications
+            widget: list
+            required: false
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Autores, name: authors, widget: string, required: false, hint: "Tu nombre se resalta solo." }
+              - { label: Revista o congreso, name: venue, widget: string, required: false }
+              - { label: Año, name: year, widget: string, required: false }
+              - { label: Tipo, name: kind, widget: string, required: false, hint: "Artículo, Congreso, Preprint…" }
+              - label: Enlaces
+                name: links
+                widget: list
+                required: false
+                hint: "El primero es el del título. Ej.: DOI, PDF, Datos."
+                fields:
+                  - { label: Texto, name: label, widget: string }
+                  - { label: Enlace, name: url, widget: string }
+          - label: Libros
+            name: books
+            widget: list
+            required: false
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Año, name: year, widget: string, required: false }
+              - { label: Portada, name: cover, widget: image, required: false }
+              - { label: Descripción, name: description, widget: text, required: false }
+              - { label: Enlace, name: url, widget: string, required: false }
+              - { label: Texto del botón, name: label, widget: string, required: false, default: Ver libro }
+          - label: Proyectos
+            name: projects
+            widget: list
+            required: false
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Descripción, name: description, widget: text, required: false }
+              - { label: Enlace, name: url, widget: string, required: false }
+              - { label: Texto del botón, name: label, widget: string, required: false }
