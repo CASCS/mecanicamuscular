@@ -1,13 +1,10 @@
 ---
 title: ¿Puede la Calidad del Sueño Indicar el Sobreentrenamiento en Deportistas?
-date: '2025-01-25T11:54:12.000Z'
-description: >-
-  Estudo revisado: Can Sleep Be Used as an Indicator of Overreaching and
-  Overtraining in Athletes? de Lastela y cols. (2018)
-image: >-
-  https://images.unsplash.com/photo-1525169267298-12532cf95139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzbGVlcGluZ3xlbnwwfHx8fDE3Mzc4MDc2NzR8MA&ixlib=rb-4.0.3&q=80&w=2000
+date: 2025-01-25T11:54:12.000Z
+description: "Estudo revisado: Can Sleep Be Used as an Indicator of Overreaching
+  and Overtraining in Athletes? de Lastela y cols. (2018)"
+image: https://images.unsplash.com/photo-1525169267298-12532cf95139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDIyfHxzbGVlcGluZ3xlbnwwfHx8fDE3Mzc4MDc2NzR8MA&ixlib=rb-4.0.3&q=80&w=2000
 tags:
-  - 'Volumen #1'
   - Fatiga y Recuperación
 featured: false
 draft: true
