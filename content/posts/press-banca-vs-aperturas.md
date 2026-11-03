@@ -70,7 +70,7 @@ Además, se observó una actividad muscular significativamente mayor en las tres
 
 - - -
 
-![](https://www.jssm.org/volume19/iss4/images/jssm-19-645-g006.jpg "Figura 4. Activación muscular en diferentes fases (inferior, media y superior) en el triceps braquial para ambos ejercicios. Los valores son medias con intervalo de confianza del 95%. * indica una diferencia significativa (p ≤ 0,05) entre los dos ejercicios.")
+![](https://www.jssm.org/volume19/iss4/images/jssm-19-645-g006.jpg)
 
 **Figura 4***. Activación muscular en diferentes fases (inferior, media y superior) en el triceps braquial para ambos ejercicios. Los valores son medias con intervalo de confianza del 95%. * indica una diferencia significativa (p ≤ 0,05) entre los dos ejercicios.*
 
