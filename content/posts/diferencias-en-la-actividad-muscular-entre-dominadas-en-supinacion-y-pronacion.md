@@ -86,7 +86,8 @@ Finalmente, cabe señalar que, basándose exclusivamente en los registros de act
 <div class="callout-emoji">👉</div>
 <div class="callout-body">
 
-\***\*Comentarios\****
+**Comentarios**
+
 Si bien este estudio proporciona información relevante sobre la comparación entre diferentes modalidades de dominadas, es necesario reconocer ciertas limitaciones metodológicas que restringen el alcance de sus conclusiones. Específicamente, el estudio presenta una omisión significativa al no incluir el análisis del agarre neutral (donde las palmas de las manos se posicionan enfrentadas entre sí), una variante ampliamente utilizada en el entrenamiento de fuerza.
 
 Esta ausencia constituye una brecha importante en la comprensión integral del reclutamiento muscular durante la ejecución de dominadas, ya que el agarre neutral representa una configuración biomecánica intermedia entre la pronación y la supinación, con características singulares que podrían generar patrones de activación muscular distintos. Investigaciones previas sugieren que el agarre neutral podría ofrecer ventajas específicas, como una posición más natural para la articulación del hombro y potencialmente un menor estrés sobre las estructuras articulares.
