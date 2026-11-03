@@ -1,12 +1,10 @@
 ---
 title: Diferencias en la actividad muscular entre dominadas en supinación y pronación
-date: '2024-08-08T05:12:07.000Z'
-description: >-
-  Estudio analizado: Surface Electromyographic Activation Patterns and Elbow
-  Joint Motion During a Pull-Up, Chin-Up, or Perfect-Pullup™ Rotational Exercise
-  de Youdas y cols. (2010).
-image: >-
-  https://images.unsplash.com/photo-1605296867424-35fc25c9212a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fHB1bGwlMjB1cHxlbnwwfHx8fDE3NDA2MjgxMTB8MA&ixlib=rb-4.0.3&q=80&w=2000
+date: 2024-08-08T05:12:07.000Z
+description: "Estudio analizado: Surface Electromyographic Activation Patterns
+  and Elbow Joint Motion During a Pull-Up, Chin-Up, or Perfect-Pullup™
+  Rotational Exercise de Youdas y cols. (2010)."
+image: https://images.unsplash.com/photo-1605296867424-35fc25c9212a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDh8fHB1bGwlMjB1cHxlbnwwfHx8fDE3NDA2MjgxMTB8MA&ixlib=rb-4.0.3&q=80&w=2000
 tags:
   - Fuerza y Acondicionamiento
 featured: false
@@ -20,7 +18,7 @@ Existen diversas variantes de dominadas, cuya diferenciación radica principalme
 
 En este contexto, analizaremos un estudio que comparó la activación muscular asociada a tres variantes de dominadas: (1) con agarre en pronación, (2) con agarre en supinación, y (3) con rotación durante la fase concéntrica mediante el sistema denominado "Perfect-Pullup™".
 
-* * *
+- - -
 
 ## El estudio
 
@@ -30,15 +28,9 @@ El estudio consistió, en primer lugar, en la colocación estratégica de electr
 
 Posteriormente, siguiendo un procedimiento estandarizado, cada participante realizó pruebas de contracción isométrica voluntaria máxima (MVIC) para cada uno de los músculos objeto de estudio.
 
-Finalmente, todos los sujetos ejecutaron 3 repeticiones de cada una de las variantes de dominadas analizadas (con agarre en supinación, con agarre en pronación, y con un dispositivo que permitía la rotación del agarre). Para garantizar la validez metodológica, estas series se realizaron siguiendo un orden aleatorio. En el caso específico de las dominadas efectuadas con el dispositivo Perfect-Pull-up™, los participantes iniciaban el movimiento en posición de pronación y completaban la fase concéntrica en supinación. (Para una mejor comprensión de las variantes de dominadas analizadas, ver la Figura 1).
+Finalmente, todos los sujetos ejecutaron 3 repeticiones de cada una de las variantes de dominadas analizadas (con agarre en supinación, con agarre en pronación, y con un dispositivo que permitía la rotación del agarre). Para garantizar la validez metodológica, estas series se realizaron siguiendo un orden aleatorio. En el caso específico de las dominadas efectuadas con el dispositivo Perfect-Pull-up™, los participantes iniciaban el movimiento en posición de pronación y completaban la fase concéntrica en supinación. 
 
-* * *
-
-![](/ghost-content/images/2025/02/pull-up-pronacion.jpeg)
-
-*****Figura 1****. Las dos primeras imágenes pertenecen a la dominada en pronación, las dos segundas al agarre en supinación y las dos últimas a las dominadas con el dispositivo Perfect-Pull-up™.*
-
-* * *
+- - -
 
 ## Resultados
 
@@ -48,19 +40,19 @@ No se observaron diferencias para el dorsal ancho o el erector de la columna.
 
 El sistema Perfect-Pullup™ no parece ofrecer un mejor reclutamiento muscular. Si bien se observó una ligera tendencia hacia una mayor activación del dorsal ancho con este sistema, esta diferencia no alcanzó niveles estadísticamente significativos en comparación con las otras dos variantes analizadas.
 
-* * *
+- - -
 
-![](/ghost-content/images/2025/02/diferencias-emg-dominadas.svg)
+![](/images/uploads/pull-up-study.png)
 
-*****Figura 2.**** Datos electromiográficos (EMG) como porcentaje de la contracción isométrica voluntaria máxima (MVIC) de la actividad muscular en función de las variantes de pull-up.*
+**Figura 2**. *Datos electromiográficos (EMG) como porcentaje de la contracción isométrica voluntaria máxima (MVIC) de la actividad muscular en función de las variantes de pull-up.*
 
-* * *
+- - -
 
 ## ¿Qué significa esto?
 
 El propósito de este estudio fue comparar la actividad de siete grupos musculares bajo tres condiciones diferentes de dominadas, con el objetivo de determinar si las variantes con agarre en supinación o pronación influyen significativamente en el reclutamiento muscular. Para facilitar la comprensión de los resultados obtenidos, analizaremos los datos de manera estructurada.
 
-#### #1. Diferencias significativas en tres músculos específicos
+#### \#1. Diferencias significativas en tres músculos específicos
 
 La activación del pectoral mayor presentó variaciones notables entre las distintas modalidades de dominadas, oscilando desde un 44% de la contracción isométrica voluntaria máxima (MVIC) durante las dominadas con agarre en pronación hasta un 57% de MVIC en la variante con agarre en supinación. Esta diferencia sustancial en la activación del pectoral mayor durante el agarre supino puede explicarse mediante principios biomecánicos: la posición del brazo en relación con el tronco al inicio de la fase concéntrica genera un estiramiento considerable del pectoral mayor hasta el momento en que el brazo supera la horizontal. En las dominadas con agarre en supinación, el reclutamiento muscular aumenta porque los codos se posicionan por delante del cuerpo, lo que incrementa el brazo de palanca durante la fase de tracción, mientras que simultáneamente los codos se mantienen más próximos al torso y ligeramente orientados hacia los laterales.
 
@@ -68,13 +60,13 @@ En cuanto al bíceps braquial, se observó un patrón similar de diferenciación
 
 Respecto a las fibras inferiores del trapecio, los datos revelaron una mayor activación muscular durante las dominadas con agarre en pronación (56% de MVIC) en comparación con las realizadas con agarre en supinación (45% de MVIC). Esta diferencia encuentra su explicación en la posición de las escápulas, que al inicio de la fase concéntrica en las dominadas en pronación se encuentran en una posición más elevada (en rotación externa). Esta configuración anatómica somete al trapecio inferior a un mayor estiramiento inicial, lo que justifica su activación significativamente superior durante esta variante del ejercicio.
 
-### #2. El motor primario mantiene activación constante
+### \#2. El motor primario mantiene activación constante
 
 De los 7 músculos examinados durante la ejecución de las diferentes variantes de dominadas, el dorsal ancho, considerado el motor primario de este movimiento, desarrolló claramente las señales electromiográficas de mayor magnitud. Estas oscilaron entre el 117% de MVIC para las dominadas con agarre en pronación y el 130% de MVIC para el ejercicio con rotación mediante las manijas giratorias Perfect·Pullup™. Sin embargo, no se observaron diferencias estadísticamente significativas entre las tres variantes analizadas.
 
 Este hallazgo coincide con investigaciones previas que han encontrado que tanto la actividad electromiográfica máxima como la activación muscular variable media rectificada del dorsal ancho presentan valores similares independientemente de las diferentes orientaciones de las manos durante la ejecución de dominadas ([3](https://pubmed.ncbi.nlm.nih.gov/28011412/)). Esta evidencia sugiere una conclusión práctica relevante: si el objetivo principal es trabajar el desarrollo del dorsal ancho mediante dominadas, la elección del tipo de agarre no resulta determinante, ya que las tres variantes estudiadas generan niveles similares de reclutamiento muscular en este grupo específico.
 
-* * *
+- - -
 
 ## Conclusiones e implicaciones prácticas
 
@@ -88,13 +80,13 @@ Por lo tanto, independientemente de la variante de dominadas que se seleccione, 
 
 Finalmente, cabe señalar que, basándose exclusivamente en los registros de actividad electromiográfica, el ejercicio de rotación que utiliza los mangos giratorios Perfect·Pullup™ no ofrece ventajas significativas respecto a las dominadas convencionales (ya sean en supinación o pronación) cuando el objetivo principal es fortalecer los músculos de la espalda, los hombros, los brazos y el tronco.
 
-* * *
+- - -
 
 <div class="callout callout-blue">
 <div class="callout-emoji">👉</div>
 <div class="callout-body">
 
-****Comentarios****
+\***\*Comentarios\****
 Si bien este estudio proporciona información relevante sobre la comparación entre diferentes modalidades de dominadas, es necesario reconocer ciertas limitaciones metodológicas que restringen el alcance de sus conclusiones. Específicamente, el estudio presenta una omisión significativa al no incluir el análisis del agarre neutral (donde las palmas de las manos se posicionan enfrentadas entre sí), una variante ampliamente utilizada en el entrenamiento de fuerza.
 
 Esta ausencia constituye una brecha importante en la comprensión integral del reclutamiento muscular durante la ejecución de dominadas, ya que el agarre neutral representa una configuración biomecánica intermedia entre la pronación y la supinación, con características singulares que podrían generar patrones de activación muscular distintos. Investigaciones previas sugieren que el agarre neutral podría ofrecer ventajas específicas, como una posición más natural para la articulación del hombro y potencialmente un menor estrés sobre las estructuras articulares.
@@ -106,17 +98,14 @@ Esta limitación adquiere mayor relevancia si consideramos que el sistema Perfec
 </div>
 </div>
 
-* * *
+- - -
 
 <details>
 <summary>Referencias</summary>
 
-1) Johnson y cols. (2009). Relationship of lat-pull repetitions and pull-ups to maximal lat-pull and pull-up strength in men and women.
-
-2) Basmajian & Latif. (1957). Integrated actions and functions of the chief flexors of the elbow: a detailed electromyographic analysis.
-
-3) Dickie y cols. (2016). Electromyographic analysis of muscle activation during pull-up variations.
-
-4) Signorile, Zink, & Szwed. (2002). A comparative electromyographical investigation of muscle utilization patterns using various hand positions during the lat pull-down.
+1. Johnson y cols. (2009). Relationship of lat-pull repetitions and pull-ups to maximal lat-pull and pull-up strength in men and women.
+2. Basmajian & Latif. (1957). Integrated actions and functions of the chief flexors of the elbow: a detailed electromyographic analysis.
+3. Dickie y cols. (2016). Electromyographic analysis of muscle activation during pull-up variations.
+4. Signorile, Zink, & Szwed. (2002). A comparative electromyographical investigation of muscle utilization patterns using various hand positions during the lat pull-down.
 
 </details>
