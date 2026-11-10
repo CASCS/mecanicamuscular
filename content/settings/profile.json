@@ -39,7 +39,17 @@
       "authors": "Yonathan Smoak",
       "venue": "Journal of Strength and Performance",
       "year": "2022",
-      "kind": "Artículo"
+      "kind": "Artículo",
+      "links": [
+        {
+          "label": "DOI",
+          "url": "https://doi.org/10.5281/zenodo.23332269"
+        },
+        {
+          "label": "DESCARGAR",
+          "url": "https://zenodo.org/records/23332269/files/Smoak%20(2022).%20Lower-Body%20Peak%20Force%20and%20Body%20Mass%20Are%20Associated%20With%20Rear-Hand%20Punch%20Impact%20Force%20in%20Professional%20Male%20Kickboxers%20An%20Exploratory%20Cross-Sectional%20Study.pdf?download=1"
+        }
+      ]
     }
   ],
   "research_intro": "",
